@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { Plan } from "./types";
 import { Link } from "expo-router";
@@ -14,15 +14,15 @@ const PlanListItem = ({ plan }: PlanListItemProps) => {
   return (
     <View>
       <Link href={`/SearchSection/${plan.id}`} asChild> 
-        <View style={styles.imageContainer}>
+        <Pressable style={styles.imageContainer}>
           <Image
             source={{ uri: plan.image || defaultPlanImage }}
             style={styles.image}
           />
-        </View>
+        </Pressable>
       </Link>
 
-      <View style={styles.screenContainer}>
+      <Pressable style={styles.screenContainer}>
         <Link href={`/SearchSection/${plan.id}`} asChild>
           <View>
             <Text style={styles.title}>{plan.name}</Text>
@@ -32,7 +32,7 @@ const PlanListItem = ({ plan }: PlanListItemProps) => {
         <Text style={styles.location}>
           {plan.placeType + " | " + plan.location}
         </Text>
-      </View>
+      </Pressable>
     </View>
   );
 };
