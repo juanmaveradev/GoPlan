@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 100,
     marginVertical: 10,
-    width:'60%'
+   
   },
   container: {
     flex: 1,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '500',
     color: 'white',
   },
 });
