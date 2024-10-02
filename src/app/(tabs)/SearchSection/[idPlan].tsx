@@ -1,9 +1,10 @@
 import {useLocalSearchParams } from "expo-router";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView  } from "react-native";
 import plans from "@assets/data/plans";
 import { defaultPlanImage } from "@components/PlanListItem";
 import Button from "@components/Button";
 import Colors from "src/constants/Colors";
+import MapView from 'react-native-maps'
 
 
 const PlanDetailScreen = () => {
@@ -13,8 +14,10 @@ const PlanDetailScreen = () => {
   if (!plan) {
     return <Text>Plan not founded</Text>;
   }
+
+  
   return (
-    <View>
+    <ScrollView >
       <Image
         source={{ uri: plan.image || defaultPlanImage }}
         style={styles.image}
@@ -27,8 +30,10 @@ const PlanDetailScreen = () => {
         <Text style={styles.description}>{plan.description}</Text>
       </View>
 
+    
+
       <Button text="Agregar a Mis Planes"/>
-    </View>
+    </ScrollView >
   );
 };
 
@@ -55,7 +60,12 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 17
   },
+  map: {
+    width: '100%',
+    height: 200,
+    marginTop: 30,
 
+  }
 });
 
 export default PlanDetailScreen;
